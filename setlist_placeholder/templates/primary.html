@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ main_title }}</title>
+  <style>
+    @page {
+      size: 5.82in 7.76in;
+    }
+    .text-xl {
+      font-size: 4rem;
+    }
+
+    .text-lg {
+      font-size: 3rem;
+    }
+
+    .text-md {
+      font-size: 2rem;
+    }
+
+    .text-sm {
+      font-size: 1rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .font-bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .mt-1 {
+      margin-top: 1rem;
+    }
+
+    .ml-2 {
+      margin-left: 2rem;
+    }
+
+    .ml-4 {
+      margin-left: 4rem;
+    }
+
+    .ml-6 {
+      margin-left: 6rem;
+    }
+
+    .ml-8 {
+      margin-left: 8rem;
+    }
+
+    .pl-1 {
+      padding-left: 1rem;
+    }
+
+    .border-gray {
+      border-color: #e2e2e2;
+    }
+
+    .border-l-2 {
+      border-left-style: solid;
+      border-left-width: 8px;
+    }
+
+    .w-60 {
+      max-width: 60rem;
+    }
+
+  </style>
+</head>
+<body>
+<header id="main-title" class="text-xl center font-bold">{{ main_title }}</header>
+<main>
+  {% if piece %}
+    <section id="piece-title" class="center">
+      <span class="text-md">{{ piece['title'] }}</span>
+    </section>
+    <section id="players" class="text-sm center italic">
+      <span class="text-sm">{{  piece['players'] }}</span>
+    </section>
+  {% endif %}
+{% if quote %}
+  <section id="quote">
+    <header id="speaker" class="text-sm font-bold ml-2">
+      {{ quote['speaker'] }}
+    </header>
+    <div class="ml-4 mt-1 pl-1 border-l-2 border-gray w-60">
+      {{ quote['text'] }}
+    </div>
+    <div id="caption" class="italic text-xs mt-1 ml-8">{{ quote['caption'] }}</div>
+  </section>
+{% endif %}
+</main>
+
+</body>
+</html>
