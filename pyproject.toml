@@ -11,6 +11,9 @@ click = "^7.0"
 WeasyPrint = "^51.0"
 Jinja2 = "^2.10"
 toml = "^0.10.0"
+Flask = "^1.1"
+flask-wtf = "^0.14.2"
+wtforms = "^2.2"
 
 [tool.poetry.dev-dependencies]
 

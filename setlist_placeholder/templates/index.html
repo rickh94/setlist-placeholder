@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Setlist Placeholder</title>
+</head>
+<body>
+<form action="/" method="post">
+  {{ form.hidden_tag() }}
+  {{ form.main_title.label }}
+  {{ form.main_title }}
+  <br>
+  <label for="mode">Select which type of placeholder to create</label>
+  <br>
+  <select name="mode" id="mode">
+    <option value="quote">Quote</option>
+    <option value="piece">Piece</option>
+  </select>
+  <br>
+  <section id="piece-options" style="display: none;">
+    {{ form.piece_title.label }}
+    {{ form.piece_title }}
+    <br>
+    {{ form.piece_players.label }}
+    {{ form.piece_players }}
+  </section>
+  <section id="quote-options" style="display: block;">
+    {{ form.quote_speaker.label }}
+    {{ form.quote_speaker }}
+    <br>
+    {{ form.quote_text.label }}
+    {{ form.quote_text }}
+    <br>
+    {{ form.quote_caption.label }}
+    {{ form.quote_caption }}
+    <br>
+  </section>
+  <input type="submit" value="Create">
+</form>
+
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const $pieceOptions = document.getElementById('piece-options');
+    const $quoteOptions = document.getElementById('quote-options');
+    document.getElementById('mode').addEventListener('change', function (event) {
+      if (event.target.value === 'piece') {
+        $pieceOptions.style.display = 'block';
+        $quoteOptions.style.display = 'none';
+      } else if (event.target.value === 'quote') {
+        $pieceOptions.style.display = 'none';
+        $quoteOptions.style.display = 'block';
+      }
+    });
+  });
+</script>
+</html>
+
