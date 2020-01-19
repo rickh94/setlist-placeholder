@@ -1,3 +1,4 @@
+import os
 import random
 import tempfile
 import webbrowser
@@ -70,7 +71,7 @@ def index():
 
 def create_app(output):
     app = Flask("Setlist Placeholder")
-    app.config["SECRET_KEY"] = "running locally only"
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "localonly")
     app.config["OUTPUT"] = output
 
     app.add_url_rule("/", "Index", index, methods=["GET", "POST"])

@@ -6,41 +6,59 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Setlist Placeholder</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+        rel="stylesheet">
 </head>
 <body>
-<form action="/" method="post">
-  {{ form.hidden_tag() }}
-  {{ form.main_title.label }}
-  {{ form.main_title }}
-  <br>
-  <label for="mode">Select which type of placeholder to create</label>
-  <br>
-  <select name="mode" id="mode">
-    <option value="quote">Quote</option>
-    <option value="piece">Piece</option>
-  </select>
-  <br>
-  <section id="piece-options" style="display: none;">
-    {{ form.piece_title.label }}
-    {{ form.piece_title }}
-    <br>
-    {{ form.piece_players.label }}
-    {{ form.piece_players }}
-  </section>
-  <section id="quote-options" style="display: block;">
-    {{ form.quote_speaker.label }}
-    {{ form.quote_speaker }}
-    <br>
-    {{ form.quote_text.label }}
-    {{ form.quote_text }}
-    <br>
-    {{ form.quote_caption.label }}
-    {{ form.quote_caption }}
-    <br>
-  </section>
-  <input type="submit" value="Create">
-</form>
+<div class="container mx-auto mt-4">
+  <header>
+    <h1 class="text-2xl font-bold">Setlist Placeholder Creator</h1>
+  </header>
+  <form action="/" method="post" class="w-3/4">
+    {{ form.hidden_tag() }}
+    <div class="block w-full">
+      {{ form.main_title.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.main_title(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+    </div>
+    <div class="w-full">
+      <label for="mode" class="text-sm text-gray-700 block pl-2 mt-1">Select which type of
+        placeholder to create</label>
+    </div>
+    <div class="relative">
+      <select name="mode" id="mode"
+              class="block appearance-none w-full bg-gray-200 border-b border-gray-600 text-gray-700 p-1"
+      placeholder="Quote">
+        <option value="quote">Quote</option>
+        <option value="piece">Piece</option>
+      </select>
+      <div
+          class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 20 20">
+          <path
+              d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+        </svg>
+      </div>
+    </div>
+    <section id="piece-options" style="display: none;">
+      {{ form.piece_title.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.piece_title(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+      {{ form.piece_players.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.piece_players(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+    </section>
+    <section id="quote-options" style="display: block;" >
+      {{ form.quote_speaker.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.quote_speaker(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+      {{ form.quote_text.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.quote_text(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+      {{ form.quote_caption.label(class_="text-sm text-gray-700 block pl-2 mt-1") }}
+      {{ form.quote_caption(class_="bg-gray-200 border-b border-gray-600 p-1 w-full") }}
+    </section>
+    <input type="submit" value="Create" class="mt-2 bg-gray-200 border-b border-gray-600 cursor-pointer p-2 hover:bg-gray-400 hover:border-gray-800">
 
+  </form>
+
+</div>
 </body>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -58,4 +76,3 @@
   });
 </script>
 </html>
-
